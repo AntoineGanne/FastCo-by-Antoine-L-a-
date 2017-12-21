@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="commercialModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="articles">
+    <Key>
+      <PropertyRef Name="NO_ARTICLE" />
+    </Key>
+    <Property Name="NO_ARTICLE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LIB_ARTICLE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QTE_DISPO" Type="Int32" Nullable="false" />
+    <Property Name="VILLE_ART" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRIX_ART" Type="Decimal" Nullable="false" />
+    <Property Name="INTERROMPU" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="compose" Relationship="Self.fk1_compose" FromRole="articles" ToRole="compose" />
+    <NavigationProperty Name="compose1" Relationship="Self.fk2_compose" FromRole="articles" ToRole="compose" />
+    <NavigationProperty Name="detail_cde" Relationship="Self.fk2_detail_cde" FromRole="articles" ToRole="detail_cde" />
+  </EntityType>
+  <EntityType Name="clientel">
+    <Key>
+      <PropertyRef Name="NO_CLIENT" />
+    </Key>
+    <Property Name="NO_CLIENT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SOCIETE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOM_CL" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRENOM_CL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ADRESSE_CL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VILLE_CL" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CODE_POST_CL" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="commandes" Relationship="Self.fk2_commandes" FromRole="clientel" ToRole="commandes" />
+  </EntityType>
+  <EntityType Name="commandes">
+    <Key>
+      <PropertyRef Name="NO_COMMAND" />
+    </Key>
+    <Property Name="NO_COMMAND" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NO_VENDEUR" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NO_CLIENT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATE_CDE" Type="DateTime" Nullable="false" />
+    <Property Name="FACTURE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="clientel" Relationship="Self.fk2_commandes" FromRole="commandes" ToRole="clientel" />
+    <NavigationProperty Name="vendeur" Relationship="Self.fk1_commandes" FromRole="commandes" ToRole="vendeur" />
+    <NavigationProperty Name="detail_cde" Relationship="Self.fk1_detail_cde" FromRole="commandes" ToRole="detail_cde" />
+  </EntityType>
+  <EntityType Name="compose">
+    <Key>
+      <PropertyRef Name="NO_COMPOSE" />
+      <PropertyRef Name="NO_COMPOSANT" />
+    </Key>
+    <Property Name="NO_COMPOSE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NO_COMPOSANT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QTE_COMPOSANT" Type="Int32" />
+    <NavigationProperty Name="articles" Relationship="Self.fk1_compose" FromRole="compose" ToRole="articles" />
+    <NavigationProperty Name="articles1" Relationship="Self.fk2_compose" FromRole="compose" ToRole="articles" />
+  </EntityType>
+  <EntityType Name="detail_cde">
+    <Key>
+      <PropertyRef Name="NO_COMMAND" />
+      <PropertyRef Name="NO_ARTICLE" />
+    </Key>
+    <Property Name="NO_COMMAND" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NO_ARTICLE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QTE_CDEE" Type="Int32" />
+    <Property Name="LIVREE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="articles" Relationship="Self.fk2_detail_cde" FromRole="detail_cde" ToRole="articles" />
+    <NavigationProperty Name="commandes" Relationship="Self.fk1_detail_cde" FromRole="detail_cde" ToRole="commandes" />
+  </EntityType>
+  <EntityType Name="vendeur">
+    <Key>
+      <PropertyRef Name="NO_VENDEUR" />
+    </Key>
+    <Property Name="NO_VENDEUR" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NO_VEND_CHEF_EQ" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOM_VEND" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRENOM_VEND" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATE_EMBAU" Type="DateTime" Nullable="false" />
+    <Property Name="VILLE_VEND" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SALAIRE_VEND" Type="Decimal" Nullable="false" />
+    <Property Name="COMMISSION" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="commandes" Relationship="Self.fk1_commandes" FromRole="vendeur" ToRole="commandes" />
+    <NavigationProperty Name="vendeur1" Relationship="Self.fk1_vendeur" FromRole="vendeur" ToRole="vendeur1" />
+    <NavigationProperty Name="vendeur2" Relationship="Self.fk1_vendeur" FromRole="vendeur1" ToRole="vendeur" />
+  </EntityType>
+  <Association Name="fk1_compose">
+    <End Role="articles" Type="Self.articles" Multiplicity="1" />
+    <End Role="compose" Type="Self.compose" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="articles">
+        <PropertyRef Name="NO_ARTICLE" />
+      </Principal>
+      <Dependent Role="compose">
+        <PropertyRef Name="NO_COMPOSE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk2_compose">
+    <End Role="articles" Type="Self.articles" Multiplicity="1" />
+    <End Role="compose" Type="Self.compose" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="articles">
+        <PropertyRef Name="NO_ARTICLE" />
+      </Principal>
+      <Dependent Role="compose">
+        <PropertyRef Name="NO_COMPOSANT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk2_detail_cde">
+    <End Role="articles" Type="Self.articles" Multiplicity="1" />
+    <End Role="detail_cde" Type="Self.detail_cde" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="articles">
+        <PropertyRef Name="NO_ARTICLE" />
+      </Principal>
+      <Dependent Role="detail_cde">
+        <PropertyRef Name="NO_ARTICLE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk2_commandes">
+    <End Role="clientel" Type="Self.clientel" Multiplicity="1" />
+    <End Role="commandes" Type="Self.commandes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clientel">
+        <PropertyRef Name="NO_CLIENT" />
+      </Principal>
+      <Dependent Role="commandes">
+        <PropertyRef Name="NO_CLIENT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk1_commandes">
+    <End Role="vendeur" Type="Self.vendeur" Multiplicity="1" />
+    <End Role="commandes" Type="Self.commandes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendeur">
+        <PropertyRef Name="NO_VENDEUR" />
+      </Principal>
+      <Dependent Role="commandes">
+        <PropertyRef Name="NO_VENDEUR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk1_detail_cde">
+    <End Role="commandes" Type="Self.commandes" Multiplicity="1" />
+    <End Role="detail_cde" Type="Self.detail_cde" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="commandes">
+        <PropertyRef Name="NO_COMMAND" />
+      </Principal>
+      <Dependent Role="detail_cde">
+        <PropertyRef Name="NO_COMMAND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk1_vendeur">
+    <End Role="vendeur" Type="Self.vendeur" Multiplicity="1" />
+    <End Role="vendeur1" Type="Self.vendeur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendeur">
+        <PropertyRef Name="NO_VENDEUR" />
+      </Principal>
+      <Dependent Role="vendeur1">
+        <PropertyRef Name="NO_VEND_CHEF_EQ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="commercialEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="articles" EntityType="Self.articles" />
+    <EntitySet Name="clientel" EntityType="Self.clientel" />
+    <EntitySet Name="commandes" EntityType="Self.commandes" />
+    <EntitySet Name="compose" EntityType="Self.compose" />
+    <EntitySet Name="detail_cde" EntityType="Self.detail_cde" />
+    <EntitySet Name="vendeur" EntityType="Self.vendeur" />
+    <AssociationSet Name="fk1_compose" Association="Self.fk1_compose">
+      <End Role="articles" EntitySet="articles" />
+      <End Role="compose" EntitySet="compose" />
+    </AssociationSet>
+    <AssociationSet Name="fk2_compose" Association="Self.fk2_compose">
+      <End Role="articles" EntitySet="articles" />
+      <End Role="compose" EntitySet="compose" />
+    </AssociationSet>
+    <AssociationSet Name="fk2_detail_cde" Association="Self.fk2_detail_cde">
+      <End Role="articles" EntitySet="articles" />
+      <End Role="detail_cde" EntitySet="detail_cde" />
+    </AssociationSet>
+    <AssociationSet Name="fk2_commandes" Association="Self.fk2_commandes">
+      <End Role="clientel" EntitySet="clientel" />
+      <End Role="commandes" EntitySet="commandes" />
+    </AssociationSet>
+    <AssociationSet Name="fk1_commandes" Association="Self.fk1_commandes">
+      <End Role="vendeur" EntitySet="vendeur" />
+      <End Role="commandes" EntitySet="commandes" />
+    </AssociationSet>
+    <AssociationSet Name="fk1_detail_cde" Association="Self.fk1_detail_cde">
+      <End Role="commandes" EntitySet="commandes" />
+      <End Role="detail_cde" EntitySet="detail_cde" />
+    </AssociationSet>
+    <AssociationSet Name="fk1_vendeur" Association="Self.fk1_vendeur">
+      <End Role="vendeur" EntitySet="vendeur" />
+      <End Role="vendeur1" EntitySet="vendeur" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
