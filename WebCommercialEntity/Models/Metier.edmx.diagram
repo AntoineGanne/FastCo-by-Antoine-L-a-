@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="231d8b9281ee45a78de50e2c742829ae" Name="Diagram1">
+        <EntityTypeShape EntityType="commercialModel1.articles" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="commercialModel1.clientel" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="commercialModel1.commandes" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="commercialModel1.compose" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="commercialModel1.detail_cde" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="commercialModel1.vendeur" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="commercialModel1.fk1_compose" ManuallyRouted="false" />
+        <AssociationConnector Association="commercialModel1.fk2_compose" ManuallyRouted="false" />
+        <AssociationConnector Association="commercialModel1.fk2_detail_cde" ManuallyRouted="false" />
+        <AssociationConnector Association="commercialModel1.fk2_commandes" ManuallyRouted="false" />
+        <AssociationConnector Association="commercialModel1.fk1_commandes" ManuallyRouted="false" />
+        <AssociationConnector Association="commercialModel1.fk1_detail_cde" ManuallyRouted="false" />
+        <AssociationConnector Association="commercialModel1.fk1_vendeur" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
