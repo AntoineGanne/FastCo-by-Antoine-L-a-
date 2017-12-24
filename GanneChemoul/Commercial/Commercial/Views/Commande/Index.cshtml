@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCommercial.cshtml";
+}
+
+<h2>Index</h2>
+
+@{ 
+    
+
+    Service unService = Service.getInstance();
+    List<DetailCde> mesDetails = unService.getLesDetails(no_command);
+
+}
+
