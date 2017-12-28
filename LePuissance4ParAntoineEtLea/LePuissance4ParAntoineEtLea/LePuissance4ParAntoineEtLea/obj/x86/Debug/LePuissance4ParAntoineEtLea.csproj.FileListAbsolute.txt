@@ -18,3 +18,4 @@ D:\coding\c#\FastCo-by-Antoine-L-a-\LePuissance4ParAntoineEtLea\LePuissance4ParA
 D:\coding\c#\FastCo-by-Antoine-L-a-\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\obj\x86\Debug\LePuissance4ParAntoineEtLea.exe
 D:\coding\c#\FastCo-by-Antoine-L-a-\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\obj\x86\Debug\LePuissance4ParAntoineEtLea.pdb
 D:\coding\c#\FastCo-by-Antoine-L-a-\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\obj\x86\Debug\LePuissance4ParAntoineEtLea.csprojResolveAssemblyReference.cache
+D:\coding\c#\FastCo-by-Antoine-L-a-\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\bin\x86\Debug\Content\MyFont.xnb

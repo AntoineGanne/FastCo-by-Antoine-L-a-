@@ -37,6 +37,15 @@
       <Output>D:\coding\c#\FastCo-by-Antoine-L-a-\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\bin\x86\Debug\Content\images\rouge.xnb</Output>
       <Time>2017-12-26T19:55:10+01:00</Time>
     </Item>
+    <Item>
+      <Source>MyFont.spritefont</Source>
+      <Name>MyFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\coding\c#\FastCo-by-Antoine-L-a-\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\LePuissance4ParAntoineEtLea\bin\x86\Debug\Content\MyFont.xnb</Output>
+      <Time>2017-12-28T20:56:27.8090624+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{E1B23260-1767-44E0-9714-FF4C28F6D1AA}</ContentProjectGUID>
